@@ -1,6 +1,6 @@
 {
   "name": "@neon-ui/hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "neon hooks",
   "keywords": [
     "neon",
@@ -29,6 +29,6 @@
     "build": "yarn run clean && tsc -p tsconfig.lib.json && tsc -p tsconfig.es.json"
   },
   "dependencies": {
-    "@neon-ui/misc": "^1.0.0"
+    "@neon-ui/misc": "^1.0.1"
   }
 }
