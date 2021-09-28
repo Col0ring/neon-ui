@@ -1,0 +1,21 @@
+{
+  "name": "@neon-ui/misc",
+  "version": "1.0.0",
+  "description": "neon misc tools",
+  "keywords": [
+    "neon",
+    "misc"
+  ],
+  "author": {
+    "name": "Col0ring",
+    "email": "1561999073@qq.com"
+  },
+  "homepage": "https://github.com/col0ring/neon-ui#readme",
+  "license": "MIT",
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/col0ring/neon-ui.git"
+  },
+  "scripts": {}
+}
