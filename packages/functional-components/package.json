@@ -16,15 +16,22 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "typings": "lib/index.d.ts",
-  "peerDependencies": {},
   "dependencies": {
-    "@neon-ui/hooks": "*",
+    "@neon-ui/hooks": "^1.0.0",
     "react-use-methods": "^1.1.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/col0ring/neon-ui.git"
   },
-  "scripts": {},
-  "devDependencies": {}
+  "peerDependencies": {
+    "react": "^17.0.2"
+  },
+  "scripts": {
+    "clean": "rimraf {es,lib}",
+    "build": "yarn run clean && tsc -p tsconfig.lib.json && tsc -p tsconfig.es.json"
+  },
+  "devDependencies": {
+    "tslib": "^2.3.1"
+  }
 }

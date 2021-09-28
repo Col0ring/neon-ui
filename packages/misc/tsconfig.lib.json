@@ -6,6 +6,7 @@
     "module": "CommonJS",
     "outDir": ".",
     "resolveJsonModule": false,
+    "declaration": true,
     "baseUrl": "."
   },
 
