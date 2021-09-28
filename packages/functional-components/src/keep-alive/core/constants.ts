@@ -1,0 +1,8 @@
+export enum CacheStatus {
+  CREATE = 'CREATE',
+  CREATED = 'CREATED',
+  ACTIVE = 'ACTIVE',
+  ACTIVATED = 'ACTIVATED',
+  DEACTIVATED = 'DEACTIVATED',
+  DESTROY = 'DESTROY',
+}

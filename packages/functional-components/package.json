@@ -1,0 +1,30 @@
+{
+  "name": "@neon-ui/functional-components",
+  "version": "1.0.0",
+  "description": "neon functional components",
+  "keywords": [
+    "neon",
+    "react",
+    "functional"
+  ],
+  "author": {
+    "name": "Col0ring",
+    "email": "1561999073@qq.com"
+  },
+  "homepage": "https://github.com/col0ring/neon-ui#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "lib/index.d.ts",
+  "peerDependencies": {},
+  "dependencies": {
+    "@neon-ui/hooks": "*",
+    "react-use-methods": "^1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/col0ring/neon-ui.git"
+  },
+  "scripts": {},
+  "devDependencies": {}
+}
