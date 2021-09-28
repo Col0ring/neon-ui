@@ -24,7 +24,7 @@
     "lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier",
     "lint:prettier": "prettier --write --no-error-on-unmatched-pattern **/*.{ts,tsx,js,json,html,yml,css,less,md}",
     "lint:eslint": "eslint --fix -c .eslintrc.js --ext .ts,.tsx,.js,.jsx .",
-    "lint:stylelint": "stylelint --config stylelint.config.js \"**/*.(tsx|jsx)\"",
+    "lint:stylelint": "stylelint --config stylelint.config.js \"**/*.(ts|tsx)\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
     "commit": "cz",

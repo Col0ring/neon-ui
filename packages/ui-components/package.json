@@ -1,0 +1,31 @@
+{
+  "name": "@neon-ui/ui-components",
+  "version": "1.0.0",
+  "description": "neon ui components",
+  "keywords": [
+    "neon",
+    "react",
+    "ui"
+  ],
+  "author": {
+    "name": "Col0ring",
+    "email": "1561999073@qq.com"
+  },
+  "homepage": "https://github.com/col0ring/neon-ui#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.esm.js",
+  "typings": "lib/index.d.ts",
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/col0ring/neon-ui.git"
+  },
+  "scripts": {},
+  "dependencies": {
+    "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.14"
+  }
+}
