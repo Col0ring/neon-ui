@@ -1,6 +1,6 @@
 {
   "name": "@neon-ui/misc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "neon misc tools",
   "keywords": [
     "neon",
@@ -18,6 +18,9 @@
   },
   "peerDependencies": {
     "react": "^17.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "clean": "rimraf {./dom.js,./dom.d.ts,./type-utils.js,./type-utils.d.ts}",

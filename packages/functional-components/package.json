@@ -1,6 +1,6 @@
 {
   "name": "@neon-ui/functional-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "neon functional components",
   "keywords": [
     "neon",
@@ -17,8 +17,11 @@
   "module": "es/index.js",
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@neon-ui/hooks": "^1.0.0",
+    "@neon-ui/hooks": "^1.0.1",
     "react-use-methods": "^1.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
