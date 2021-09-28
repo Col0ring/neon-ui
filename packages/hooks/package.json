@@ -1,0 +1,28 @@
+{
+  "name": "@neon-ui/hooks",
+  "version": "1.0.0",
+  "description": "neon hooks",
+  "keywords": [
+    "neon",
+    "react",
+    "react-hooks",
+    "hooks"
+  ],
+  "author": {
+    "name": "Col0ring",
+    "email": "1561999073@qq.com"
+  },
+  "homepage": "https://github.com/col0ring/neon-ui#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "lib/index.d.ts",
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/col0ring/neon-ui.git"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
