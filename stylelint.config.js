@@ -1,13 +1,14 @@
 const prettierConfig = require('./prettier.config')
 module.exports = {
-  processors: ['stylelint-processor-styled-components'],
   extends: [
     'stylelint-config-standard',
     'stylelint-config-rational-order',
     'stylelint-prettier/recommended',
-    'stylelint-config-styled-components',
   ],
-  plugins: ['stylelint-declaration-block-no-ignored-properties'],
+  plugins: [
+    'stylelint-declaration-block-no-ignored-properties',
+    'stylelint-less',
+  ],
   rules: {
     'plugin/declaration-block-no-ignored-properties': true,
     'prettier/prettier': [true, prettierConfig],
@@ -24,5 +25,11 @@ module.exports = {
       },
     ],
   },
-  ignoreFiles: ['node_modules', 'es', 'lib', 'docs-dist/**/*', '.umi/**/*'],
+  ignoreFiles: [
+    '**/node_modules/**/*',
+    '**/es/**/*',
+    '**/lib/**/*',
+    '**/docs-dist/**/*',
+    '**/.umi/**/*',
+  ],
 }

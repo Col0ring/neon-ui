@@ -5,7 +5,7 @@ nav:
   path: /components
 group:
   path: functional/keep-alive
-  title: Functional
+  title: Functional 功能组件
 ---
 
 <code src="./demo/index.tsx"></code>

@@ -6,5 +6,5 @@ docs-dist
 .umi
 .umi-production
 .umi-test
-packages/**/*.js
-packages/**/*.d.ts
+packages/misc/*.js
+packages/misc/*.d.ts

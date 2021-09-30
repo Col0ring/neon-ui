@@ -6,8 +6,7 @@
     ".npmrc": "shell"
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.fixAll.stylelint": false
+    "source.fixAll": true
   },
   "editor.formatOnSave": true,
   "files.insertFinalNewline": true,
