@@ -1,6 +1,9 @@
 // dom hooks
 export * from './dom/useEventListener'
 // effect hooks
-export * from './effect/useUnmount'
 
+// lifecycle hooks
+export * from './lifecycle/useUnmount'
 // state hooks
+export * from './state/useRafState'
+export * from './state/useSize'
