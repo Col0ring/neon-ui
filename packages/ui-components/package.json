@@ -30,7 +30,9 @@
     "clean": "rimraf {es,lib}",
     "build": "yarn run clean && tsc -p tsconfig.lib.json && tsc -p tsconfig.es.json && gulp build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.3.1"
+  },
   "devDependencies": {
     "@types/gulp": "^4.0.9",
     "@types/gulp-less": "^0.0.32",

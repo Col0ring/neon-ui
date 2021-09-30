@@ -16,6 +16,7 @@ function buildLess() {
   return gulp
     .src(`${esmRoot}/**/*.less`)
     .pipe(less())
+    .pipe(postcss([autoprefixer, postcssCustomProperties()]))
     .pipe(gulp.dest(esmRoot))
     .pipe(gulp.dest(cjsRoot))
 }
@@ -34,7 +35,6 @@ function minifyCss() {
 function copyLess() {
   return gulp
     .src(`${srcRoot}/**/*.less`)
-    .pipe(postcss([autoprefixer, postcssCustomProperties()]))
     .pipe(gulp.dest(esmRoot))
     .pipe(gulp.dest(cjsRoot))
 }

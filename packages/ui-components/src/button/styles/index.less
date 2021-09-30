@@ -1,20 +1,8 @@
-button {
+@import '../../styles/variable.less';
+
+.@{prefix}-btn {
+  padding: 2em;
   color: red;
+  background-color: #000;
   outline: none;
-  transition: all 1s;
-  animation: fly 100 infinite;
-
-  p {
-    width: 100px;
-  }
-}
-
-@keyframes fly {
-  from {
-    left: 1px;
-  }
-
-  to {
-    left: 100px;
-  }
 }
