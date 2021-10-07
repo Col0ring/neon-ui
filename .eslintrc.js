@@ -35,6 +35,7 @@ module.exports = {
     'import/no-named-as-default-member': 'off',
     // react
     'react/self-closing-comp': 'error',
+    'react/prop-types': ['warn', { ignore: ['ignore'] }],
     // click element muse have keyboard events
     'jsx-a11y/click-events-have-key-events': 'off',
     // click element must have a role property
@@ -85,6 +86,7 @@ module.exports = {
         'no-shadow': 'off',
         // ts
         '@typescript-eslint/no-var-requires': 'warn',
+        '@typescript-eslint/ban-types': 'off',
         '@typescript-eslint/no-shadow': 'error',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',

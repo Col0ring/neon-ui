@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import useClassNames from '../utils/useClassNames'
 import { ButtonType, ButtonSize } from './type'
 
@@ -11,17 +11,33 @@ export interface ButtonProps extends Omit<NativeButtonProps, 'type'> {
   htmlType?: NativeButtonProps['type']
   type?: ButtonType
   size?: ButtonSize
+  className?: string
+  disabled?: boolean
+  block?: boolean
 }
 
 export const Button: React.FC<ButtonProps> = ({
   children,
+  className,
   type,
   size,
+  htmlType,
+  disabled,
+  block,
   ...attrs
 }) => {
   const { withClassPrefix } = useClassNames('btn')
+  const buttonClassName = useMemo(
+    () => withClassPrefix(className, size, type),
+    [withClassPrefix, className, size, type]
+  )
   return (
-    <button className="neon-btn" {...attrs}>
+    <button
+      type={htmlType}
+      disabled={disabled}
+      className={buttonClassName}
+      {...attrs}
+    >
       {children}
     </button>
   )

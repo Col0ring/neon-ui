@@ -16,22 +16,22 @@ function addPrefix(pre: string, className: string | string[]): string {
 
 export interface useClassNamesReturn {
   /**
-   *A function of combining className and adding a prefix to each className.
-   * At the same time, the default `classPrefix` is the first className.
+   * A function of combining className and adding a prefix to each className
+   * The default classPrefix is `neon-${prefix}`, and add className `neon-{prefix}`
    */
   withClassPrefix: (...classes: Argument[]) => string
   /**
-   * Add a prefix to className
+   * Add a prefix to className, the default classPrefix is `neon-${prefix}`
    */
-  prefix: (...classes: Argument[]) => string
+  addPrefix: (...classes: Argument[]) => string
   /**
    * classnames alias
    */
   merge: typeof classnames
   /**
-   *
+   * Add a rootPrefix to className，the default className is 'neon-'
    */
-  rootPrefix: (...classes: Argument[]) => string
+  addRootPrefix: (...classes: Argument[]) => string
 }
 
 const classPrefix = 'neon'
@@ -43,33 +43,45 @@ const classPrefix = 'neon'
  * @returns {useClassNamesReturn}
  *
  */
-export function useClassNames(str: string): useClassNamesReturn {
-  const componentName = useMemo(() => addPrefix(classPrefix, str), [str])
+export function useClassNames(prefix: string): useClassNamesReturn {
+  return useMemo(() => {
+    const componentName = addPrefix(classPrefix, prefix)
 
-  return useMemo(
-    () => ({
+    const addComponentPrefix: useClassNamesReturn['addPrefix'] = (
+      ...classes
+    ) => {
+      const mergedClassNames = classes.length
+        ? classnames(...classes)
+            .split(' ')
+            .map((item) => addPrefix(componentName, item))
+        : []
+
+      return mergedClassNames.filter(Boolean).join(' ')
+    }
+    return {
       /**
        * @example
        * if str = 'button':
-       * prefix('red', { active: true }) => 'neon-button-red neon-button-active'
+       * addPrefix('red', { active: true }) => 'neon-button-red neon-button-active'
        */
-      prefix(...classes) {
-        const mergedClassNames = classes.length
-          ? classnames(...classes)
-              .split(' ')
-              .map((item) => addPrefix(componentName, item))
-          : []
-
-        return mergedClassNames.filter(Boolean).join(' ')
-      },
+      addPrefix: addComponentPrefix,
+      /**
+       * @example
+       * if str = 'button':
+       * withClassPrefix('red', { active: true }) => 'neon-button neon-button-red neon-button-active'
+       */
       withClassPrefix(...classes: Argument[]) {
-        const mergedClassNames = this.prefix(classes)
+        const mergedClassNames = addComponentPrefix(classes)
         return mergedClassNames
           ? `${componentName} ${mergedClassNames}`
           : componentName
       },
       merge: classnames,
-      rootPrefix(...classes: Argument[]) {
+      /**
+       * @example
+       * addRootPrefix('red', { active: true }) => 'neon-red neon-active'
+       */
+      addRootPrefix(...classes: Argument[]) {
         const mergedClassNames = classes.length
           ? classnames(...classes)
               .split(' ')
@@ -78,9 +90,8 @@ export function useClassNames(str: string): useClassNamesReturn {
 
         return mergedClassNames.filter(Boolean).join(' ')
       },
-    }),
-    [componentName]
-  )
+    }
+  }, [prefix])
 }
 
 export default useClassNames
