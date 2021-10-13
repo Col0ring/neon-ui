@@ -14,11 +14,18 @@ const esmRoot = path.join(__dirname, './es')
 
 function buildLess() {
   return gulp
-    .src(`${esmRoot}/**/*.less`)
+    .src(`${srcRoot}/**/styles/index.less`)
     .pipe(less())
     .pipe(postcss([autoprefixer, postcssCustomProperties()]))
     .pipe(gulp.dest(esmRoot))
     .pipe(gulp.dest(cjsRoot))
+}
+
+function copyLessPlugins() {
+  return gulp
+    .src(`${srcRoot}/styles/plugins/*.js`)
+    .pipe(gulp.dest(`${esmRoot}/styles/plugins`))
+    .pipe(gulp.dest(`${cjsRoot}/styles/plugins`))
 }
 
 function minifyCss() {
@@ -39,5 +46,5 @@ function copyLess() {
     .pipe(gulp.dest(cjsRoot))
 }
 
-const build = gulp.series(copyLess, buildLess, minifyCss)
+const build = gulp.series(copyLess, copyLessPlugins, buildLess, minifyCss)
 export { build }

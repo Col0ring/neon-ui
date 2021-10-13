@@ -1,0 +1,56 @@
+@import 'variables';
+
+//
+// Scaffolding
+// --------------------------------------------------
+
+// Body reset
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  color: var(--rs-text-primary);
+  font-size: @font-size-base;
+  font-family: @font-family-base;
+  line-height: @line-height-base;
+  background-color: var(--rs-body);
+}
+
+// Links
+
+a {
+  color: var(--rs-text-link);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var(--rs-text-link-hover);
+    text-decoration: @link-hover-decoration;
+  }
+
+  &:active {
+    color: var(--rs-text-link-active);
+    text-decoration: @link-active-decoration;
+  }
+}
+
+// Images
+
+img {
+  vertical-align: middle;
+}
+
+// Horizontal rules
+
+hr {
+  margin-top: @line-height-computed;
+  margin-bottom: @line-height-computed;
+  border: 0;
+  border-top: 1px solid @divider-border-color;
+}
+
+[role='button'] {
+  cursor: pointer;
+}

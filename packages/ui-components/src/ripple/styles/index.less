@@ -1,0 +1,36 @@
+@import '../../styles/common.less';
+
+.@{prefix}-ripple {
+  position: absolute;
+  display: block;
+  background-color: @ripple-bg;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0s;
+
+  &-rippling {
+    transform: scale(1);
+    opacity: 0;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &-pond {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    pointer-events: none;
+
+    & when (@enable-ripple-effect = false) {
+      display: none !important;
+    }
+
+    .high-contrast-mode({
+      display: none !important;
+    });
+  }
+}

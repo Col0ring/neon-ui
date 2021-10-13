@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import Ripple from '../ripple'
 import useClassNames from '../utils/useClassNames'
 import { ButtonType, ButtonSize } from './type'
 
@@ -6,7 +7,6 @@ type NativeButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 >
-
 export interface ButtonProps extends Omit<NativeButtonProps, 'type'> {
   htmlType?: NativeButtonProps['type']
   type?: ButtonType
@@ -23,7 +23,6 @@ export const Button: React.FC<ButtonProps> = ({
   size,
   htmlType,
   disabled,
-  block,
   ...attrs
 }) => {
   const { withClassPrefix } = useClassNames('btn')
