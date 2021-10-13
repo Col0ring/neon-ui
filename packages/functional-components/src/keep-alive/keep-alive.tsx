@@ -1,19 +1,17 @@
 import React, { useEffect, useRef } from 'react'
 import { useEventListener, useUnmount } from '@neon-ui/hooks'
-import { CacheOptions } from '../type'
+import { CacheOptions } from './type'
 import { useCacheContext } from './provider'
-import { CacheStatus } from './constants'
+import { CachePrefix, CacheStatus } from './constants'
+import { StandardProps } from '@neon-ui/misc/element-type'
 
-export interface KeepAliveProps extends CacheOptions {
-  className?: string
-  style?: React.CSSProperties
-}
+export interface KeepAliveProps extends CacheOptions, StandardProps {}
+
 const KeepAlive: React.FC<KeepAliveProps> = ({
   children,
   cacheId,
-  className,
-  style,
   scroll = false,
+  ...rest
 }) => {
   const [cacheState, cacheMethods] = useCacheContext()
   const keepAliveRef = useRef<HTMLDivElement | null>(null)
@@ -28,21 +26,21 @@ const KeepAlive: React.FC<KeepAliveProps> = ({
     // cache  render
     if (
       doms &&
-      (cacheStatus === CacheStatus.CREATED ||
-        cacheStatus === CacheStatus.ACTIVATED)
+      (cacheStatus === CacheStatus.Created ||
+        cacheStatus === CacheStatus.Activated)
     ) {
       cacheMethods.renderCacheDoms(cacheId, {
         scroll,
         parentNode: keepAliveRef.current!,
       })
-    } else if (!cacheStatus || cacheStatus === CacheStatus.DESTROY) {
+    } else if (!cacheStatus || cacheStatus === CacheStatus.Destroy) {
       // first render
       cacheMethods.addCacheElement(cacheId, <>{children}</>)
     }
   }, [doms, cacheStatus, cacheMethods, cacheId, scroll, children])
 
   useEffect(() => {
-    cacheElement?.status === CacheStatus.DEACTIVATED &&
+    cacheElement?.status === CacheStatus.DeActivated &&
       cacheMethods.activate(cacheId)
   }, [cacheStatus, cacheId, cacheMethods, cacheElement?.status])
 
@@ -52,10 +50,9 @@ const KeepAlive: React.FC<KeepAliveProps> = ({
 
   return (
     <div
-      id={`keepalive-cache-${cacheId}`}
+      id={`${CachePrefix.keepaliveIdPrefix}-${cacheId}`}
       ref={keepAliveRef}
-      className={className}
-      style={style}
+      {...rest}
     />
   )
 }

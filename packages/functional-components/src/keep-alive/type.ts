@@ -1,5 +1,5 @@
 import React from 'react'
-import { CacheStatus } from './core/constants'
+import { CacheStatus } from './constants'
 
 export interface CacheOptions {
   cacheId: string

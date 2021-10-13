@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { CacheStatus } from './constants'
+import { CachePrefix, CacheStatus } from './constants'
 import { useCacheContext, withCacheProvider } from './provider'
 
 const KeepAliveProvider: React.FC = ({ children }) => {
@@ -7,7 +7,7 @@ const KeepAliveProvider: React.FC = ({ children }) => {
   const renderState = useMemo(
     () =>
       Object.values(cacheState).filter(
-        (state) => state && state.status !== CacheStatus.DESTROY
+        (state) => state && state.status !== CacheStatus.Destroy
       ),
     [cacheState]
   )
@@ -16,7 +16,7 @@ const KeepAliveProvider: React.FC = ({ children }) => {
       {children}
       {renderState.map(({ cacheId, doms, element }) => (
         <div
-          id={`element-cache-${cacheId}`}
+          id={`${CachePrefix.cacheContainerIdPrefix}-${cacheId}`}
           key={cacheId}
           ref={(dom) => {
             if (dom && doms.length === 0) {

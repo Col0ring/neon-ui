@@ -1,6 +1,6 @@
 import React from 'react'
 import { createMethodsContext } from 'react-use-methods'
-import { CacheContextValue } from '../type'
+import { CacheContextValue } from './type'
 import { CacheStatus } from './constants'
 
 const [useCacheContext, CacheProvider, withCacheProvider] =
@@ -11,7 +11,7 @@ const [useCacheContext, CacheProvider, withCacheProvider] =
         // cache
         if (cacheElement) {
           // if refresh or clear
-          if (cacheElement.status === CacheStatus.DESTROY) {
+          if (cacheElement.status === CacheStatus.Destroy) {
             const { doms } = cacheElement
             doms.forEach((dom) => {
               dom.parentNode?.removeChild(dom)
@@ -26,7 +26,7 @@ const [useCacheContext, CacheProvider, withCacheProvider] =
                   y: 0,
                 },
                 element,
-                status: CacheStatus.CREATE,
+                status: CacheStatus.Create,
               },
             }
           }
@@ -42,7 +42,7 @@ const [useCacheContext, CacheProvider, withCacheProvider] =
               x: 0,
               y: 0,
             },
-            status: CacheStatus.CREATE,
+            status: CacheStatus.Create,
           },
         }
       },
@@ -56,7 +56,7 @@ const [useCacheContext, CacheProvider, withCacheProvider] =
           [cacheId]: {
             ...state[cacheId],
             doms,
-            status: CacheStatus.CREATED,
+            status: CacheStatus.Created,
           },
         }
       },
@@ -77,7 +77,7 @@ const [useCacheContext, CacheProvider, withCacheProvider] =
           ...state,
           [cacheId]: {
             ...cacheElement,
-            status: CacheStatus.ACTIVE,
+            status: CacheStatus.Active,
           },
         }
       },
@@ -100,7 +100,7 @@ const [useCacheContext, CacheProvider, withCacheProvider] =
           ...state,
           [cacheId]: {
             ...state[cacheId],
-            status: CacheStatus.ACTIVATED,
+            status: CacheStatus.Activated,
           },
         }
       },
@@ -109,7 +109,7 @@ const [useCacheContext, CacheProvider, withCacheProvider] =
           ...state,
           [cacheId]: {
             ...state[cacheId],
-            status: CacheStatus.DEACTIVATED,
+            status: CacheStatus.DeActivated,
           },
         }
       },
@@ -118,14 +118,14 @@ const [useCacheContext, CacheProvider, withCacheProvider] =
           ...state,
           [cacheId]: {
             ...state[cacheId],
-            status: CacheStatus.DESTROY,
+            status: CacheStatus.Destroy,
           },
         }
       },
       clear() {
         return Object.keys(state).reduce((prev, next) => {
           // eslint-disable-next-line no-param-reassign
-          prev[next] = { ...state[next], status: CacheStatus.DESTROY }
+          prev[next] = { ...state[next], status: CacheStatus.Destroy }
           return prev
         }, {} as CacheContextValue)
       },
