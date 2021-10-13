@@ -12,8 +12,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:eslint-comments/recommended',
     'plugin:import/recommended',
-    // ts 支持
-    'plugin:import/typescript',
+
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
@@ -35,7 +34,7 @@ module.exports = {
     'import/no-named-as-default-member': 'off',
     // react
     'react/self-closing-comp': 'error',
-    'react/prop-types': ['warn', { ignore: ['ignore'] }],
+    'react/prop-types': 'off',
     // click element muse have keyboard events
     'jsx-a11y/click-events-have-key-events': 'off',
     // click element must have a role property
@@ -78,6 +77,8 @@ module.exports = {
       },
       plugins: ['@typescript-eslint'],
       extends: [
+        // ts 支持
+        'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],

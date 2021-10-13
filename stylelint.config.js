@@ -13,6 +13,7 @@ module.exports = {
     'plugin/declaration-block-no-ignored-properties': true,
     'prettier/prettier': [true, prettierConfig],
     'no-invalid-position-at-import-rule': null,
+    'at-rule-no-unknown': [true, { ignoreAtRules: 'plugin' }],
     'rule-empty-line-before': [
       'always',
       {
