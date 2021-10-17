@@ -1,5 +1,85 @@
 import React from 'react'
-import type { DomElement, DomParam } from './type-utils'
+import type { DomElement, DomParam, NormalFunction } from './type-utils'
+import { noop } from './utils'
+
+// event
+export function preventDefault(e: React.UIEvent) {
+  e.preventDefault()
+}
+export function stopPropagation(e: React.UIEvent) {
+  e.stopPropagation()
+}
+
+function on<K extends keyof HTMLElementEventMap>(
+  ref: DomParam,
+  eventName: K,
+  handler: (ev: HTMLElementEventMap[K]) => void,
+  options?: EventListenerOptions
+): void
+function on<K extends keyof ElementEventMap>(
+  ref: DomParam,
+  eventName: K,
+  handler: (ev: ElementEventMap[K]) => void,
+  options?: EventListenerOptions
+): void
+function on<K extends keyof DocumentEventMap>(
+  ref: DomParam,
+  eventName: K,
+  handler: (ev: DocumentEventMap[K]) => void,
+  options?: EventListenerOptions
+): void
+function on<K extends keyof WindowEventMap>(
+  ref: DomParam,
+  eventName: K,
+  handler: (ev: WindowEventMap[K]) => void,
+  options?: EventListenerOptions
+): void
+function on(
+  ref: DomParam,
+  eventName: string,
+  handler: NormalFunction,
+  options: EventListenerOptions
+): void
+function on(
+  ref: DomParam,
+  eventName: string,
+  handler: NormalFunction,
+  options: AddEventListenerOptions = {}
+) {
+  const el = getDomElement(ref)
+  const eventListener: EventListener = (e) => handler(e)
+  el?.addEventListener(eventName, eventListener, options)
+  return function off() {
+    el?.removeEventListener(eventName, eventListener, options)
+  }
+}
+
+export { on }
+
+export function isRefObject<T>(ref: React.Ref<T>): ref is React.RefObject<T> {
+  return !!(ref && typeof ref !== 'function')
+}
+
+export function toFnRef<T>(ref?: React.Ref<T>): React.RefCallback<T> {
+  if (!ref) {
+    return noop
+  }
+  return isRefObject(ref)
+    ? (value) => {
+        // eslint-disable-next-line @typescript-eslint/no-extra-semi
+        ;(ref as React.MutableRefObject<T | null>).current = value
+      }
+    : ref
+}
+
+export function mergeRef<T>(
+  ...refs: (React.Ref<T> | undefined)[]
+): React.RefCallback<T> {
+  const refFns = refs.map((ref) => toFnRef(ref))
+  return (value) => {
+    refFns.forEach((refFn) => refFn(value))
+  }
+}
 
 export function isDomRef<T extends DomElement = DomElement>(
   value: DomParam<T>
