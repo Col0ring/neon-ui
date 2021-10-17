@@ -56,6 +56,6 @@ const KeepAlive: React.FC<KeepAliveProps> = ({
     />
   )
 }
-
+KeepAlive.displayName = 'KeepAlive'
 export { KeepAlive }
 export default KeepAlive
