@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react'
+import React, { useRef, useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { NeonForwardRefExoticComponent } from '@neon-ui/misc/element-type'
-import { mergeRef, on } from '@neon-ui/misc/dom'
+import { mergeRef } from '@neon-ui/misc/dom'
 import { CssTransition } from '../animation'
 import useClassNames from '../utils/useClassNames'
 import { getPosition } from './utils'
@@ -11,11 +11,17 @@ export interface RippleProps {
   onMouseDown?: (position: any, event: React.MouseEvent) => void
 }
 
-export const Ripple: NeonForwardRefExoticComponent<'span', RippleProps> =
+export const RippleWrapper: NeonForwardRefExoticComponent<'div', RippleProps> =
   React.forwardRef((props, nodeRef) => {
-    const { as: Component = 'span', className, onMouseDown, ...rest } = props
+    const {
+      as: Component = 'div',
+      className,
+      onMouseDown,
+      children,
+      ...rest
+    } = props
     const { merge, addPrefix, withClassPrefix } = useClassNames('ripple')
-    const rippleClassName = merge(className, addPrefix('pond'))
+    const rippleClassName = merge(className, addPrefix('wrapper'))
     const ref = useRef<HTMLElement>(null)
     const [rippling, setRippling] = useState(false)
     const [rect, setRect] = useState<RectProps>({
@@ -42,40 +48,32 @@ export const Ripple: NeonForwardRefExoticComponent<'span', RippleProps> =
       [onMouseDown]
     )
 
-    useEffect(() => {
-      const el = ref.current?.parentNode
-      if (el) {
-        const off = on(
-          el,
-          'mousedown',
-          handleMouseDown as unknown as EventListener
-        )
-        return off
-      }
-    }, [handleMouseDown])
-
     return (
       <Component
+        {...rest}
+        onMouseDown={handleMouseDown}
         className={rippleClassName}
         ref={mergeRef(ref, nodeRef)}
-        {...rest}
       >
-        <CssTransition
-          in={rippling}
-          enteringClassName={addPrefix('rippling')}
-          onEntered={handleRippled}
-        >
-          <i className={withClassPrefix()} style={rect} />
-        </CssTransition>
+        <span className={addPrefix('pond')}>
+          <CssTransition
+            in={rippling}
+            enteringClassName={addPrefix('rippling')}
+            onEntered={handleRippled}
+          >
+            <i className={withClassPrefix()} style={rect} />
+          </CssTransition>
+        </span>
+        {children}
       </Component>
     )
   })
 
-Ripple.displayName = 'Ripple'
+RippleWrapper.displayName = 'RippleWrapper'
 
-Ripple.propTypes = {
+RippleWrapper.propTypes = {
   className: PropTypes.string,
   onMouseDown: PropTypes.func,
 }
 
-export default Ripple
+export default RippleWrapper

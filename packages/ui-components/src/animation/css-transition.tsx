@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { CssTransitionProps, NextCallback } from './type'
+import { AnimationChildren, AnimationEventProps, NextCallback } from './type'
 import {
   getAnimationEnd,
   createNextCallback,
@@ -8,8 +8,40 @@ import {
 } from './utils'
 import { animationPropTypes, AnimationStatus } from './constants'
 import { NormalFunction } from '@neon-ui/misc/type-utils'
+import { StandardProps } from '@neon-ui/misc/element-type'
 import { useRafState } from '@neon-ui/hooks'
+import { mergeRef } from '@neon-ui/misc/dom'
 import useClassNames from '../utils/useClassNames'
+
+export interface CssTransitionProps extends StandardProps, AnimationEventProps {
+  /* animation/transition */
+  animation?: boolean
+  nodeRef?: React.Ref<HTMLElement>
+  /** Primary content */
+  children?: AnimationChildren<CssTransitionProps>
+  /** Show the component; triggers the enter or exit animation */
+  in?: boolean
+  /** Unmount the component (remove it from the DOM) when it is not shown */
+  unmountOnExit?: boolean
+
+  /** Run the enter animation when the component mounts, if it is initially shown */
+  transitionAppear?: boolean
+
+  /** A Timeout for the animation */
+  timeout?: number
+
+  /** CSS class or classes applied when the component is exited */
+  exitedClassName?: string
+
+  /** CSS class or classes applied while the component is exiting */
+  exitingClassName?: string
+
+  /** CSS class or classes applied when the component is entered */
+  enteredClassName?: string
+
+  /** CSS class or classes applied while the component is entering */
+  enteringClassName?: string
+}
 
 export const CssTransition: React.FC<CssTransitionProps> = (props) => {
   const {
@@ -53,8 +85,7 @@ export const CssTransition: React.FC<CssTransitionProps> = (props) => {
     [exitedClassName, enteringClassName, enteredClassName, exitingClassName]
   )
 
-  const defaultRef = useRef<HTMLElement>(null)
-  const ref = nodeRef || defaultRef
+  const ref = useRef<HTMLElement>(null)
   const nextCallback = useRef<NextCallback>()
 
   const onTransitionEnd = useCallback(
@@ -72,7 +103,7 @@ export const CssTransition: React.FC<CssTransitionProps> = (props) => {
         nextCallback.current?.()
       }
     },
-    [animation, ref, timeout]
+    [animation, timeout]
   )
 
   const transitionActions: Partial<Record<AnimationStatus, NormalFunction>> =
@@ -143,7 +174,7 @@ export const CssTransition: React.FC<CssTransitionProps> = (props) => {
         setStatus(AnimationStatus.Exiting)
       }
     }
-  }, [transitionIn, ref, unmountOnExit, setStatus, status, onEnter, onExit])
+  }, [transitionIn, unmountOnExit, setStatus, status, onEnter, onExit])
 
   // onMount render
   if (status === AnimationStatus.Unmount) {
@@ -159,7 +190,7 @@ export const CssTransition: React.FC<CssTransitionProps> = (props) => {
             ...props,
             className: merge(className, transitionClassName[status]),
           },
-          ref
+          nodeRef || ref
         )}
       </>
     )
@@ -171,7 +202,7 @@ export const CssTransition: React.FC<CssTransitionProps> = (props) => {
       {React.isValidElement(child)
         ? React.cloneElement(child, {
             ...rest,
-            ref,
+            ref: mergeRef(ref, nodeRef),
             // merge all classNames
             className: merge(
               className,

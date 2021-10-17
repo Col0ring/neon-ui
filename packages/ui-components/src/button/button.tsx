@@ -37,6 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={buttonClassName}
       {...attrs}
     >
+      <Ripple />
       {children}
     </button>
   )

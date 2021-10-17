@@ -1,5 +1,3 @@
-import { StandardProps } from '@neon-ui/misc/element-type'
-
 export type FunctionChildren<P = {}> = (
   props: P,
   ref: React.LegacyRef<HTMLElement>
@@ -30,34 +28,4 @@ export interface AnimationEventProps {
 
   /** Callback fired after the Modal finishes transitioning out */
   onExited?: (node?: null | Element | Text) => void
-}
-
-export interface CssTransitionProps extends StandardProps, AnimationEventProps {
-  /* animation/transition */
-  animation?: boolean
-  nodeRef?: React.RefObject<HTMLElement>
-  /** Primary content */
-  children?: AnimationChildren<CssTransitionProps>
-  /** Show the component; triggers the enter or exit animation */
-  in?: boolean
-  /** Unmount the component (remove it from the DOM) when it is not shown */
-  unmountOnExit?: boolean
-
-  /** Run the enter animation when the component mounts, if it is initially shown */
-  transitionAppear?: boolean
-
-  /** A Timeout for the animation */
-  timeout?: number
-
-  /** CSS class or classes applied when the component is exited */
-  exitedClassName?: string
-
-  /** CSS class or classes applied while the component is exiting */
-  exitingClassName?: string
-
-  /** CSS class or classes applied when the component is entered */
-  enteredClassName?: string
-
-  /** CSS class or classes applied while the component is entering */
-  enteringClassName?: string
 }

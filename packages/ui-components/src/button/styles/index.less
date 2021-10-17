@@ -1,13 +1,14 @@
-@import '../../styles/variables.less';
+@import '../../styles/common.less';
 @import './mixins.less';
+@import '../../ripple/styles/mixins.less';
 
-// .@{prefix}-btn {
-//   padding: 0.5em 2em;
-//   color: @white;
-//   border: 1px solid;
-//   outline: none;
-
-//   &-info {
-//     .theme-color(@info);
-//   }
-// }
+.@{prefix}-btn {
+  padding: 0.5em 2em;
+  color: #000;
+  border: 1px solid;
+  outline: none;
+  .with-ripple();
+  // &-info {
+  // .theme-color(@info);
+  // }
+}

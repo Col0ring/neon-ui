@@ -1,7 +1,15 @@
 @import '../../styles/common.less';
+@import './mixins.less';
+
+.@{prefix}-ripple-wrapper {
+  .with-ripple();
+
+  display: inline-block;
+}
 
 .@{prefix}-ripple {
   position: absolute;
+  z-index: @zindex-ripple;
   display: block;
   background-color: @ripple-bg;
   border-radius: 50%;
@@ -16,6 +24,8 @@
   }
 
   &-pond {
+    // ripple wrapper
+
     position: absolute;
     top: 0;
     left: 0;
