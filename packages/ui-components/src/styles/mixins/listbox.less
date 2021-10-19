@@ -31,7 +31,7 @@
   width: 100%;
   padding: @picker-item-content-padding-vertical
     @picker-item-content-padding-horizontal;
-  color: var(--rs-text-primary);
+  color: var(--neon-text-primary);
   font-weight: normal;
   line-height: @line-height-base;
   text-decoration: none;
@@ -46,26 +46,26 @@
 // "-active" for aria-activedescendant
 
 .listbox-option-active(@multiselectable: false) {
-  background-color: var(--rs-listbox-option-hover-bg);
+  background-color: var(--neon-listbox-option-hover-bg);
 
   // No need to change text color in multiselectable listboxes
   // in favor of checkbox state changes
   & when (@multiselectable = false) {
-    color: var(--rs-listbox-option-hover-text);
+    color: var(--neon-listbox-option-hover-text);
   }
 
   .high-contrast-mode({
     .focus-ring(slim-inset);
 
-    color: var(--rs-listbox-option-hover-text);
+    color: var(--neon-listbox-option-hover-text);
     text-decoration: underline;
   });
 }
 
 .listbox-option-selected() {
-  color: var(--rs-listbox-option-selected-text);
+  color: var(--neon-listbox-option-selected-text);
   font-weight: bold;
-  background-color: var(--rs-listbox-option-selected-bg);
+  background-color: var(--neon-listbox-option-selected-bg);
 
   .high-contrast-mode({
     text-decoration: underline;
@@ -73,7 +73,7 @@
 }
 
 .listbox-options-disabled() {
-  color: var(--rs-listbox-option-disabled-text);
+  color: var(--neon-listbox-option-disabled-text);
   background: none;
   cursor: not-allowed;
 }

@@ -187,8 +187,8 @@
 // Scaffolding
 // Settings for some of the most global styles.
 
-@link-hover-decoration: underline;
-@link-active-decoration: underline;
+@link-hover-decoration: none;
+@link-active-decoration: none;
 
 // Disabled cursor for form controls and buttons.
 @cursor-disabled: not-allowed;
@@ -221,7 +221,7 @@
     @table-scrollbar-width - @table-scrollbar-handle-width
   )/2;
 
-@table-loader-backdrop-color: var(--rs-loader-backdrop);
+@table-loader-backdrop-color: var(--neon-loader-backdrop);
 @table-loader-transition: 0.2s ease-in;
 
 // Buttons
@@ -525,12 +525,12 @@
 @modal-border-radius: @border-radius;
 
 @modal-title-font-size: @font-size-large;
-@modal-title-color: var(--rs-text-primary);
+@modal-title-color: var(--neon-text-primary);
 @modal-title-line-height: @line-height-large;
 
 @modal-close-btn-size: @font-size-small;
 @modal-close-btn-line-height: @line-height-small;
-@modal-close-btn-color: var(--rs-text-primary);
+@modal-close-btn-color: var(--neon-text-primary);
 
 // Modal sizes
 @modal-lg: 968px;
@@ -584,7 +584,7 @@
 
 // toaster
 
-@toast-ns: ~'rs-toast';
+@toast-ns: ~'neon-toast';
 @toast-box-shadow: @box-shadow;
 @toast-spacing: 24px;
 
@@ -695,13 +695,13 @@
 @divider-text-space: 12px;
 @divider-vertical-margin: 12px;
 @divider-border-color: var(
-  --rs-border-primary
-); // TODO: Deprecate, use --rs-divider-border
+  --neon-border-primary
+); // TODO: Deprecate, use --neon-divider-border
 
 // Pickers
 
 // prefixs
-@picker-prefix: ~'rs-picker';
+@picker-prefix: ~'neon-picker';
 @select-picker-prefix: ~'picker-select';
 @check-picker-prefix: ~'picker-check';
 @calendar-picker-prefix: ~'calendar';
@@ -714,13 +714,13 @@
 @input-picker-prefix: ~'picker-input';
 @multi-input-picker-prefix: ~'picker-tag';
 // Calendar Picker Name Space
-@clpns: ~'rs-@{calendar-picker-prefix}';
+@clpns: ~'neon-@{calendar-picker-prefix}';
 // Check picker name space
-@ckpns: ~'rs-@{check-picker-prefix}';
+@ckpns: ~'neon-@{check-picker-prefix}';
 
 @picker-none-padding: 6px 12px 12px;
 @picker-transition: @input-transition;
-@picker-shadow: var(--rs-dropdown-shadow);
+@picker-shadow: var(--neon-dropdown-shadow);
 @picker-value-count-border-radius: 10px;
 @picker-value-count-padding: 8px;
 @picker-value-count-margin: 4px;

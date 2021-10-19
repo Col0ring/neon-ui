@@ -10,6 +10,7 @@ module.exports = {
     'stylelint-less',
   ],
   rules: {
+    'no-descending-specificity': null,
     'plugin/declaration-block-no-ignored-properties': true,
     'prettier/prettier': [true, prettierConfig],
     'no-invalid-position-at-import-rule': null,

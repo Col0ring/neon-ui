@@ -6,307 +6,309 @@
   @import (multiple) 'common';
 
   // Reset
-  --rs-body: @B000;
+  --neon-body: @B000;
 
   // States
-  --rs-bg-success: #edfae1;
-  --rs-bg-info: #e9f5fe;
-  --rs-bg-warning: #fff9e6;
-  --rs-bg-error: #fde9ef;
+  --neon-bg-success: #edfae1;
+  --neon-bg-info: #e9f5fe;
+  --neon-bg-warning: #fff9e6;
+  --neon-bg-error: #fde9ef;
 
   // Misc
-  --rs-text-link: @H700;
-  --rs-text-link-hover: @H800;
-  --rs-text-link-active: @H900;
-  --rs-text-primary: @B800;
-  --rs-text-secondary: @B600;
-  --rs-text-tertiary: @B500;
-  --rs-text-heading: @B900;
-  --rs-text-inverse: @B050;
-  --rs-text-heading-inverse: @B000;
-  --rs-text-active: @H700;
-  --rs-text-disabled: @B400;
-  --rs-text-error: @red;
-  --rs-border-primary: @B200;
-  --rs-border-secondary: @B100;
-  --rs-bg-card: @B000;
-  --rs-bg-overlay: @B000;
-  --rs-bg-well: @B050;
-  --rs-bg-active: @H500;
-  --rs-bg-backdrop: fade(@B900, 30%);
-  --rs-state-hover-bg: @H050;
-  --rs-state-focus-shadow: 0 0 0 3px fade(@H500, 25%);
-  --rs-state-focus-outline: 3px solid fade(@H500, 25%);
-  --rs-shadow-overlay: 0 4px 4px rgba(0, 0, 0, 0.12),
+  --neon-text-link: @H700;
+  --neon-text-link-hover: @H800;
+  --neon-text-link-active: @H900;
+  --neon-text-primary: @B800;
+  --neon-text-secondary: @B600;
+  --neon-text-tertiary: @B500;
+  --neon-text-heading: @B900;
+  --neon-text-inverse: @B050;
+  --neon-text-heading-inverse: @B000;
+  --neon-text-active: @H700;
+  --neon-text-disabled: @B400;
+  --neon-text-error: @red;
+  --neon-border-primary: @B200;
+  --neon-border-secondary: @B100;
+  --neon-bg-card: @B000;
+  --neon-bg-overlay: @B000;
+  --neon-bg-well: @B050;
+  --neon-bg-active: @H500;
+  --neon-bg-backdrop: fade(@B900, 30%);
+  --neon-state-hover-bg: @H050;
+  --neon-state-focus-shadow: 0 0 0 3px fade(@H500, 25%);
+  --neon-state-focus-outline: 3px solid fade(@H500, 25%);
+  --neon-shadow-overlay: 0 4px 4px rgba(0, 0, 0, 0.12),
     0 0 10px rgba(0, 0, 0, 0.06);
 
   // Button
-  --rs-btn-default-bg: @B050;
-  --rs-btn-default-text: @B800;
-  --rs-btn-default-hover-bg: @B200;
-  --rs-btn-default-active-bg: @B300;
-  --rs-btn-default-active-text: @B900;
-  --rs-btn-default-disabled-bg: @B050;
-  --rs-btn-default-disabled-text: @B400;
-  --rs-btn-primary-bg: @H500;
-  --rs-btn-primary-text: @B000;
-  --rs-btn-primary-hover-bg: @H600;
-  --rs-btn-primary-active-bg: @H700;
-  --rs-btn-subtle-text: @B600;
-  --rs-btn-subtle-hover-bg: @B050;
-  --rs-btn-subtle-hover-text: @B800;
-  --rs-btn-subtle-active-bg: @B200;
-  --rs-btn-subtle-active-text: @B900;
-  --rs-btn-subtle-disabled-text: @B400;
-  --rs-btn-ghost-border: @H700;
-  --rs-btn-ghost-text: @H700;
-  --rs-btn-ghost-hover-border: @H800;
-  --rs-btn-ghost-hover-text: @H800;
-  --rs-btn-ghost-active-border: @H900;
-  --rs-btn-ghost-active-text: @H900;
-  --rs-btn-link-text: @H700;
-  --rs-btn-link-hover-text: @H800;
-  --rs-btn-link-active-text: @H900;
+  --neon-btn-default-bg: @B050;
+  --neon-btn-default-text: @B800;
+  --neon-btn-default-hover-bg: @B200;
+  --neon-btn-default-active-bg: @B300;
+  --neon-btn-default-active-text: @B900;
+  --neon-btn-default-disabled-bg: @B050;
+  --neon-btn-default-disabled-text: @B400;
+  --neon-btn-primary-bg: @H500;
+  --neon-btn-primary-text: @B000;
+  --neon-btn-primary-hover-bg: @H600;
+  --neon-btn-primary-active-bg: @H700;
+  --neon-btn-subtle-text: @B600;
+  --neon-btn-subtle-hover-bg: @B050;
+  --neon-btn-subtle-hover-text: @B800;
+  --neon-btn-subtle-active-bg: @B200;
+  --neon-btn-subtle-active-text: @B900;
+  --neon-btn-subtle-disabled-text: @B400;
+  --neon-btn-ghost-border: @H700;
+  --neon-btn-ghost-text: @H700;
+  --neon-btn-ghost-hover-border: @H800;
+  --neon-btn-ghost-hover-text: @H800;
+  --neon-btn-ghost-active-border: @H900;
+  --neon-btn-ghost-active-text: @H900;
+  --neon-btn-link-text: @H700;
+  --neon-btn-link-hover-text: @H800;
+  --neon-btn-link-active-text: @H900;
 
   // Icon Button
-  --rs-iconbtn-addon: @B100;
-  --rs-iconbtn-activated-addon: @B300;
-  --rs-iconbtn-pressed-addon: @B400;
-  --rs-iconbtn-primary-addon: @H600;
-  --rs-iconbtn-primary-activated-addon: @H700;
-  --rs-iconbtn-primary-pressed-addon: @H800;
+  --neon-iconbtn-addon: @B100;
+  --neon-iconbtn-activated-addon: @B300;
+  --neon-iconbtn-pressed-addon: @B400;
+  --neon-iconbtn-primary-addon: @H600;
+  --neon-iconbtn-primary-activated-addon: @H700;
+  --neon-iconbtn-primary-pressed-addon: @H800;
 
   // Divider
-  --rs-divider-border: @B200;
+  --neon-divider-border: @B200;
 
   // Loader
-  --rs-loader-ring: fade(@B050, 80);
-  --rs-loader-rotor: @B500;
-  --rs-loader-backdrop: fade(@B000, 90%);
-  --rs-loader-ring-inverse: fade(@B050, 30);
-  --rs-loader-rotor-inverse: @B000;
-  --rs-loader-backdrop-inverse: fade(@B900, 83);
+  --neon-loader-ring: fade(@B050, 80);
+  --neon-loader-rotor: @B500;
+  --neon-loader-backdrop: fade(@B000, 90%);
+  --neon-loader-ring-inverse: fade(@B050, 30);
+  --neon-loader-rotor-inverse: @B000;
+  --neon-loader-backdrop-inverse: fade(@B900, 83);
 
   // Message
-  --rs-message-success-header: var(--rs-text-heading);
-  --rs-message-success-text: var(--rs-text-primary);
-  --rs-message-success-icon: @green;
-  --rs-message-success-bg: @green-50;
-  --rs-message-info-header: var(--rs-text-heading);
-  --rs-message-info-text: var(--rs-text-primary);
-  --rs-message-info-icon: @blue;
-  --rs-message-info-bg: @blue-50;
-  --rs-message-warning-header: var(--rs-text-heading);
-  --rs-message-warning-text: var(--rs-text-primary);
-  --rs-message-warning-icon: @yellow;
-  --rs-message-warning-bg: @yellow-50;
-  --rs-message-error-header: var(--rs-text-heading);
-  --rs-message-error-text: var(--rs-text-primary);
-  --rs-message-error-icon: @red;
-  --rs-message-error-bg: @red-50;
+  --neon-message-success-header: var(--neon-text-heading);
+  --neon-message-success-text: var(--neon-text-primary);
+  --neon-message-success-icon: @green;
+  --neon-message-success-bg: @green-50;
+  --neon-message-info-header: var(--neon-text-heading);
+  --neon-message-info-text: var(--neon-text-primary);
+  --neon-message-info-icon: @blue;
+  --neon-message-info-bg: @blue-50;
+  --neon-message-warning-header: var(--neon-text-heading);
+  --neon-message-warning-text: var(--neon-text-primary);
+  --neon-message-warning-icon: @yellow;
+  --neon-message-warning-bg: @yellow-50;
+  --neon-message-error-header: var(--neon-text-heading);
+  --neon-message-error-text: var(--neon-text-primary);
+  --neon-message-error-icon: @red;
+  --neon-message-error-bg: @red-50;
 
   // Tooltip
-  --rs-tooltip-bg: @B900;
-  --rs-tooltip-text: @B000;
+  --neon-tooltip-bg: @B900;
+  --neon-tooltip-text: @B000;
 
   // Progress
-  --rs-progress-bg: @B200;
-  --rs-progress-bar: @H500;
-  --rs-progress-bar-success: @green;
-  --rs-progress-bar-fail: @red;
+  --neon-progress-bg: @B200;
+  --neon-progress-bar: @H500;
+  --neon-progress-bar-success: @green;
+  --neon-progress-bar-fail: @red;
 
   // Placeholder
-  --rs-placeholder: @B100;
-  --rs-placeholder-active: @B200;
+  --neon-placeholder: @B100;
+  --neon-placeholder-active: @B200;
 
   // Dropdown
-  --rs-dropdown-divider: @B200;
-  --rs-dropdown-item-bg-hover: @H050;
-  --rs-dropdown-item-bg-active: fade(@H050, 50);
-  --rs-dropdown-item-text-active: @H700;
-  --rs-dropdown-header-text: @B500;
-  --rs-dropdown-shadow: 0 0 10px rgba(0, 0, 0, 0.06),
+  --neon-dropdown-divider: @B200;
+  --neon-dropdown-item-bg-hover: @H050;
+  --neon-dropdown-item-bg-active: fade(@H050, 50);
+  --neon-dropdown-item-text-active: @H700;
+  --neon-dropdown-header-text: @B500;
+  --neon-dropdown-shadow: 0 0 10px rgba(0, 0, 0, 0.06),
     0 4px 4px rgba(0, 0, 0, 0.12);
 
   // ARIA menu
-  --rs-menuitem-active-bg: fade(@H100, 50);
-  --rs-menuitem-active-text: @H700;
+  --neon-menuitem-active-bg: fade(@H100, 50);
+  --neon-menuitem-active-text: @H700;
 
   // Steps
-  --rs-steps-border: @B600;
-  --rs-steps-state-finish: @H500;
-  --rs-steps-border-state-finish: @H500;
-  --rs-steps-state-wait: @B600;
-  --rs-steps-state-process: @H500;
-  --rs-steps-state-error: @red;
-  --rs-steps-border-state-error: @red;
-  --rs-steps-icon-state-process: @H500;
-  --rs-steps-icon-state-error: @red;
+  --neon-steps-border: @B600;
+  --neon-steps-state-finish: @H500;
+  --neon-steps-border-state-finish: @H500;
+  --neon-steps-state-wait: @B600;
+  --neon-steps-state-process: @H500;
+  --neon-steps-state-error: @red;
+  --neon-steps-border-state-error: @red;
+  --neon-steps-icon-state-process: @H500;
+  --neon-steps-icon-state-error: @red;
 
   // Nav
-  --rs-navs-text: @B600;
-  --rs-navs-text-hover: @B800;
-  --rs-navs-bg-hover: @B200;
-  --rs-navs-text-active: @B900;
-  --rs-navs-bg-active: @B200;
-  --rs-navs-tab-border: @B300;
-  --rs-navs-subtle-border: @B050;
-  --rs-navs-selected: @H700;
+  --neon-navs-text: @B600;
+  --neon-navs-text-hover: @B800;
+  --neon-navs-bg-hover: @B200;
+  --neon-navs-text-active: @B900;
+  --neon-navs-bg-active: @B200;
+  --neon-navs-tab-border: @B300;
+  --neon-navs-subtle-border: @B050;
+  --neon-navs-selected: @H700;
 
   // Navbar
-  --rs-navbar-default-bg: @B050;
-  --rs-navbar-default-text: @B800;
-  --rs-navbar-default-selected-text: @H700;
-  --rs-navbar-default-hover-bg: @B200;
-  --rs-navbar-default-hover-text: @B800;
-  --rs-navbar-inverse-bg: @H500;
-  --rs-navbar-inverse-text: #fff;
-  --rs-navbar-inverse-selected-bg: @H700;
-  --rs-navbar-inverse-hover-bg: @H600;
-  --rs-navbar-subtle-bg: #fff;
-  --rs-navbar-subtle-text: @B600;
-  --rs-navbar-subtle-selected-text: @H700;
-  --rs-navbar-subtle-hover-bg: @B050;
-  --rs-navbar-subtle-hover-text: @B800;
+  --neon-navbar-default-bg: @B050;
+  --neon-navbar-default-text: @B800;
+  --neon-navbar-default-selected-text: @H700;
+  --neon-navbar-default-hover-bg: @B200;
+  --neon-navbar-default-hover-text: @B800;
+  --neon-navbar-inverse-bg: @H500;
+  --neon-navbar-inverse-text: #fff;
+  --neon-navbar-inverse-selected-bg: @H700;
+  --neon-navbar-inverse-hover-bg: @H600;
+  --neon-navbar-subtle-bg: #fff;
+  --neon-navbar-subtle-text: @B600;
+  --neon-navbar-subtle-selected-text: @H700;
+  --neon-navbar-subtle-hover-bg: @B050;
+  --neon-navbar-subtle-hover-text: @B800;
 
   // Sidenav
-  --rs-sidenav-default-bg: @B050;
-  --rs-sidenav-default-text: @B800;
-  --rs-sidenav-default-selected-text: @H700;
-  --rs-sidenav-default-hover-bg: @B200;
-  --rs-sidenav-default-hover-text: @B800;
-  --rs-sidenav-inverse-bg: @H500;
-  --rs-sidenav-inverse-text: #fff;
-  --rs-sidenav-inverse-selected-bg: @H700;
-  --rs-sidenav-inverse-hover-bg: @H600;
-  --rs-sidenav-subtle-bg: #fff;
-  --rs-sidenav-subtle-text: @B600;
-  --rs-sidenav-subtle-selected-text: @H700;
-  --rs-sidenav-subtle-hover-bg: @B050;
-  --rs-sidenav-subtle-hover-text: @B800;
+  --neon-sidenav-default-bg: @B050;
+  --neon-sidenav-default-text: @B800;
+  --neon-sidenav-default-selected-text: @H700;
+  --neon-sidenav-default-hover-bg: @B200;
+  --neon-sidenav-default-hover-text: @B800;
+  --neon-sidenav-inverse-bg: @H500;
+  --neon-sidenav-inverse-text: #fff;
+  --neon-sidenav-inverse-selected-bg: @H700;
+  --neon-sidenav-inverse-hover-bg: @H600;
+  --neon-sidenav-subtle-bg: #fff;
+  --neon-sidenav-subtle-text: @B600;
+  --neon-sidenav-subtle-selected-text: @H700;
+  --neon-sidenav-subtle-hover-bg: @B050;
+  --neon-sidenav-subtle-hover-text: @B800;
 
   // Input
-  --rs-input-bg: @B000;
-  --rs-input-focus-border: @H500;
-  --rs-input-disabled-bg: @B050;
+  --neon-input-bg: @B000;
+  --neon-input-focus-border: @H500;
+  --neon-input-disabled-bg: @B050;
 
   // ARIA Listboxes
-  --rs-listbox-option-hover-bg: fade(@H100, 50%);
-  --rs-listbox-option-hover-text: @H700;
-  --rs-listbox-option-selected-text: @H700;
-  --rs-listbox-option-selected-bg: @H050;
-  --rs-listbox-option-disabled-text: @B400;
-  --rs-listbox-option-disabled-selected-text: @H200;
+  --neon-listbox-option-hover-bg: fade(@H100, 50%);
+  --neon-listbox-option-hover-text: @H700;
+  --neon-listbox-option-selected-text: @H700;
+  --neon-listbox-option-selected-bg: @H050;
+  --neon-listbox-option-disabled-text: @B400;
+  --neon-listbox-option-disabled-selected-text: @H200;
 
   // Checkbox
-  --rs-checkbox-icon: #fff;
-  --rs-checkbox-border: @B300;
-  --rs-checkbox-checked-bg: @H500;
-  --rs-checkbox-disabled-bg: @B050;
+  --neon-checkbox-icon: #fff;
+  --neon-checkbox-border: @B300;
+  --neon-checkbox-checked-bg: @H500;
+  --neon-checkbox-disabled-bg: @B050;
 
   // Radio
-  --rs-radio-marker: #fff;
-  --rs-radio-border: @B300;
-  --rs-radio-checked-bg: @H500;
-  --rs-radio-disabled-bg: @B050;
+  --neon-radio-marker: #fff;
+  --neon-radio-border: @B300;
+  --neon-radio-checked-bg: @H500;
+  --neon-radio-disabled-bg: @B050;
 
   // Rate
-  --rs-rate-symbol: @B600;
-  --rs-rate-symbol-checked: @yellow-500;
+  --neon-rate-symbol: @B600;
+  --neon-rate-symbol-checked: @yellow-500;
 
   // Toggle
-  --rs-toggle-bg: @B300;
-  --rs-toggle-thumb: #fff;
-  --rs-toggle-hover-bg: @B400;
-  --rs-toggle-disabled-bg: @B050;
-  --rs-toggle-disabled-thumb: #fff;
-  --rs-toggle-checked-bg: @H500;
-  --rs-toggle-checked-thumb: #fff;
-  --rs-toggle-checked-hover-bg: @H600;
-  --rs-toggle-checked-disabled-bg: @H100;
-  --rs-toggle-checked-disabled-thumb: #fff;
+  --neon-toggle-bg: @B300;
+  --neon-toggle-thumb: #fff;
+  --neon-toggle-hover-bg: @B400;
+  --neon-toggle-disabled-bg: @B050;
+  --neon-toggle-disabled-thumb: #fff;
+  --neon-toggle-checked-bg: @H500;
+  --neon-toggle-checked-thumb: #fff;
+  --neon-toggle-checked-hover-bg: @H600;
+  --neon-toggle-checked-disabled-bg: @H100;
+  --neon-toggle-checked-disabled-thumb: #fff;
 
   // Slider
-  --rs-slider-bar: @B100;
-  --rs-slider-hover-bar: @B200;
-  --rs-slider-thumb-border: @H500;
-  --rs-slider-thumb-bg: #fff;
-  --rs-slider-thumb-hover-shadow: 0 0 0 8px fade(@H500, 25);
-  --rs-slider-progress: @H500;
+  --neon-slider-bar: @B100;
+  --neon-slider-hover-bar: @B200;
+  --neon-slider-thumb-border: @H500;
+  --neon-slider-thumb-bg: #fff;
+  --neon-slider-thumb-hover-shadow: 0 0 0 8px fade(@H500, 25);
+  --neon-slider-progress: @H500;
 
   // Uploader
-  --rs-uploader-item-bg: @B300;
-  --rs-uploader-item-hover-bg: @B050;
-  --rs-uploader-overlay-bg: fade(#fff, 80);
-  --rs-uploader-dnd-bg: @B000;
-  --rs-uploader-dnd-border: @B200;
-  --rs-uploader-dnd-hover-border: @H500;
+  --neon-uploader-item-bg: @B300;
+  --neon-uploader-item-hover-bg: @B050;
+  --neon-uploader-overlay-bg: fade(#fff, 80);
+  --neon-uploader-dnd-bg: @B000;
+  --neon-uploader-dnd-border: @B200;
+  --neon-uploader-dnd-hover-border: @H500;
 
   // Avatar
-  --rs-avatar-bg: @B300;
-  --rs-avatar-text: @B000;
+  --neon-avatar-bg: @B300;
+  --neon-avatar-text: @B000;
 
   // Badge
-  --rs-badge-bg: @red;
-  --rs-badge-text: @B000;
+  --neon-badge-bg: @red;
+  --neon-badge-text: @B000;
 
   // Tag
-  --rs-tag-bg: @B050;
-  --rs-tag-close: @red;
+  --neon-tag-bg: @B050;
+  --neon-tag-close: @red;
 
   // Carousel
-  --rs-carousel-bg: @B600;
-  --rs-carousel-indicator: fade(@B000, 40);
-  --rs-carousel-indicator-hover: @B000;
-  --rs-carousel-indicator-active: @H500;
+  --neon-carousel-bg: @B600;
+  --neon-carousel-indicator: fade(@B000, 40);
+  --neon-carousel-indicator-hover: @B000;
+  --neon-carousel-indicator-active: @H500;
 
   // Panel
-  --rs-panel-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
+  --neon-panel-shadow: 0 4px 4px rgba(0, 0, 0, 0.12),
+    0 0 10px rgba(0, 0, 0, 0.06);
 
   // List
-  --rs-list-bg: @B000;
-  --rs-list-border: @B200;
-  --rs-list-hover-bg: @H050;
-  --rs-list-placeholder-bg: fade(@H050, 50%);
-  --rs-list-placeholder-border: @H500;
+  --neon-list-bg: @B000;
+  --neon-list-border: @B200;
+  --neon-list-hover-bg: @H050;
+  --neon-list-placeholder-bg: fade(@H050, 50%);
+  --neon-list-placeholder-border: @H500;
 
   // Timeline
-  --rs-timeline-indicator-bg: @B300;
-  --rs-timeline-indicator-active-bg: @H500;
+  --neon-timeline-indicator-bg: @B300;
+  --neon-timeline-indicator-active-bg: @H500;
 
   // Table
-  --rs-table-shadow: rgba(9, 9, 9, 0.08);
-  --rs-table-sort: @H500;
-  --rs-table-resize: @H500;
-  --rs-table-scrollbar-track: @B200;
-  --rs-table-scrollbar-thumb: @B800;
-  --rs-table-scrollbar-thumb-active: @B900;
-  --rs-table-scrollbar-vertical-track: fade(@B200, 40%);
+  --neon-table-shadow: rgba(9, 9, 9, 0.08);
+  --neon-table-sort: @H500;
+  --neon-table-resize: @H500;
+  --neon-table-scrollbar-track: @B200;
+  --neon-table-scrollbar-thumb: @B800;
+  --neon-table-scrollbar-thumb-active: @B900;
+  --neon-table-scrollbar-vertical-track: fade(@B200, 40%);
 
   // Drawer
-  --rs-drawer-shadow: 0 4px 4px rgba(0, 0, 0, 0.12),
+  --neon-drawer-shadow: 0 4px 4px rgba(0, 0, 0, 0.12),
     0 0 10px rgba(0, 0, 0, 0.06);
 
   // Modal
-  --rs-modal-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
+  --neon-modal-shadow: 0 4px 4px rgba(0, 0, 0, 0.12),
+    0 0 10px rgba(0, 0, 0, 0.06);
 
   // Form
-  --rs-form-errormessage-text: @red;
-  --rs-form-errormessage-bg: #fff;
-  --rs-form-errormessage-border: @B200;
+  --neon-form-errormessage-text: @red;
+  --neon-form-errormessage-bg: #fff;
+  --neon-form-errormessage-border: @B200;
 
   // Picker
-  --rs-picker-value: @H700;
-  --rs-picker-count-bg: @H500;
-  --rs-picker-count-text: #fff;
+  --neon-picker-value: @H700;
+  --neon-picker-count-bg: @H500;
+  --neon-picker-count-text: #fff;
 
   // Calendar
-  --rs-calendar-today-bg: @H500;
-  --rs-calendar-today-text: #fff;
-  --rs-calendar-range-bg: fade(@H100, 50%);
-  --rs-calendar-time-unit-bg: @B050;
-  --rs-calendar-date-selected-text: #fff;
+  --neon-calendar-today-bg: @H500;
+  --neon-calendar-today-text: #fff;
+  --neon-calendar-range-bg: fade(@H100, 50%);
+  --neon-calendar-time-unit-bg: @B050;
+  --neon-calendar-date-selected-text: #fff;
 
   // Popover
-  --rs-popover-shadow: 0 1px 8px rgba(0, 0, 0, 0.12);
+  --neon-popover-shadow: 0 1px 8px rgba(0, 0, 0, 0.12);
 }

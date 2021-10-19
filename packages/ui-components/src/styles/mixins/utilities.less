@@ -48,7 +48,7 @@
 .set-translate-transition(@translateX:0,@translateY:0) {
   transform: translate(0, 0);
 
-  &.rs-anim-in {
+  &.@{prefix}-anim-in {
     transform: translate(@translateX, @translateY);
   }
 }
@@ -129,23 +129,23 @@
 
 // Useful when appending the ring into an existing :focus rule
 .focus-ring() {
-  box-shadow: var(--rs-state-focus-shadow);
+  box-shadow: var(--neon-state-focus-shadow);
 }
 
 .focus-ring(slim) {
-  box-shadow: var(--rs-state-focus-shadow-slim);
+  box-shadow: var(--neon-state-focus-shadow-slim);
 }
 
 .focus-ring(inset) {
-  box-shadow: inset var(--rs-state-focus-shadow);
+  box-shadow: inset var(--neon-state-focus-shadow);
 }
 
 .focus-ring(slim-inset) {
-  box-shadow: inset var(--rs-state-focus-shadow-slim);
+  box-shadow: inset var(--neon-state-focus-shadow-slim);
 }
 
 .focus-ring(outline) {
-  outline: var(--rs-state-focus-outline);
+  outline: var(--neon-state-focus-outline);
 }
 
 // Removes the focus ring

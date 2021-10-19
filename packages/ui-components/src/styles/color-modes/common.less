@@ -1,44 +1,44 @@
 & {
   // Gray levels
-  --rs-gray-50: @B050;
-  --rs-gray-100: @B100;
-  --rs-gray-200: @B200;
-  --rs-gray-300: @B300;
-  --rs-gray-400: @B400;
-  --rs-gray-500: @B500;
-  --rs-gray-600: @B600;
-  --rs-gray-700: @B700;
-  --rs-gray-800: @B800;
-  --rs-gray-900: @B900;
+  --neon-gray-50: @B050;
+  --neon-gray-100: @B100;
+  --neon-gray-200: @B200;
+  --neon-gray-300: @B300;
+  --neon-gray-400: @B400;
+  --neon-gray-500: @B500;
+  --neon-gray-600: @B600;
+  --neon-gray-700: @B700;
+  --neon-gray-800: @B800;
+  --neon-gray-900: @B900;
 
   // Highlight levels
-  --rs-primary-50: @H050;
-  --rs-primary-100: @H100;
-  --rs-primary-200: @H200;
-  --rs-primary-300: @H300;
-  --rs-primary-400: @H400;
-  --rs-primary-500: @H500;
-  --rs-primary-600: @H600;
-  --rs-primary-700: @H700;
-  --rs-primary-800: @H800;
-  --rs-primary-900: @H900;
+  --neon-primary-50: @H050;
+  --neon-primary-100: @H100;
+  --neon-primary-200: @H200;
+  --neon-primary-300: @H300;
+  --neon-primary-400: @H400;
+  --neon-primary-500: @H500;
+  --neon-primary-600: @H600;
+  --neon-primary-700: @H700;
+  --neon-primary-800: @H800;
+  --neon-primary-900: @H900;
 
   // Spectrum levels
   each(@spectrum, .(@color-name) {
     @color: @@color-name;
     @color-name-50: ~'@{color-name}-50';
-    --rs-@{color-name}-50: @@color-name-50;
+    --neon-@{color-name}-50: @@color-name-50;
 
     each(range(9), {
-      @level: @{index}00;
+      @level: @index * 100;
       @color-name-level: ~'@{color-name}-@{level}';
-      --rs-@{color-name}-@{level}: @@color-name-level;
+      --neon-@{color-name}-@{level}: @@color-name-level;
     });
   });
 
   // Stateful colors
-  --rs-state-success: @green;
-  --rs-state-info: @blue;
-  --rs-state-warning: @yellow;
-  --rs-state-error: @red;
+  --neon-state-success: @green;
+  --neon-state-info: @blue;
+  --neon-state-warning: @yellow;
+  --neon-state-error: @red;
 }

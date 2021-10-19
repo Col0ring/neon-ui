@@ -1,14 +1,14 @@
 // Rules that take effect in dark mode.
 .dark-mode(@rules) {
   & when (@enable-dark-mode = true) {
-    .rs-theme-dark & {
+    .@{prefix}-theme-dark & {
       @rules();
     }
   }
 }
 
 .high-contrast-mode(@rules) {
-  .rs-theme-high-contrast & {
+  .@{prefix}-theme-high-contrast & {
     @rules();
   }
 }

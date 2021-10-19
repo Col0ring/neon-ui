@@ -1,18 +1,18 @@
 // Themes
 
 :root,
-.rs-theme-light {
-  @import 'color-modes/light';
+.@{prefix}-theme-light {
+  @import './color-modes/light.less';
 }
 
 & when (@enable-dark-mode = true) {
-  .rs-theme-dark {
-    @import 'color-modes/dark';
+  .@{prefix}-theme-dark {
+    @import './color-modes/dark.less';
   }
 }
 
 // TODO consider adding flag for high-contrast theme
 
-.rs-theme-high-contrast {
-  @import 'color-modes/high-contrast';
+.@{prefix}-theme-high-contrast {
+  @import './color-modes/high-contrast.less';
 }

@@ -1,4 +1,4 @@
-@import 'variables';
+@import './variables.less';
 
 //
 // Scaffolding
@@ -11,27 +11,27 @@ html {
 }
 
 body {
-  color: var(--rs-text-primary);
+  color: var(--neon-text-primary);
   font-size: @font-size-base;
   font-family: @font-family-base;
   line-height: @line-height-base;
-  background-color: var(--rs-body);
+  background-color: var(--neon-body);
 }
 
 // Links
 
 a {
-  color: var(--rs-text-link);
+  color: var(--neon-text-link);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: var(--rs-text-link-hover);
+    color: var(--neon-text-link-hover);
     text-decoration: @link-hover-decoration;
   }
 
   &:active {
-    color: var(--rs-text-link-active);
+    color: var(--neon-text-link-active);
     text-decoration: @link-active-decoration;
   }
 }

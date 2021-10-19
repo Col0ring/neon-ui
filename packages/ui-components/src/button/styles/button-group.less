@@ -1,0 +1,87 @@
+//
+// Button groups
+// --------------------------------------------------
+
+// Make the div behave like a button
+
+.@{prefix}-btn-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+
+  > .@{prefix}-btn {
+    position: relative;
+
+    // Bring the "active" button to the front.
+
+    &:focus,
+    &:active {
+      z-index: 2;
+    }
+  }
+}
+
+// Block
+.@{prefix}-btn-group-block {
+  display: block;
+}
+// Horizontal Button remove border radius
+
+.@{prefix}-btn-group:not(.@{prefix}-btn-group-vertical) {
+  > .@{prefix}-btn {
+    &:not(:last-child) {
+      .border-right-radius(0);
+    }
+
+    &:not(:first-child) {
+      .border-left-radius(0);
+    }
+  }
+
+  // collapse border
+
+  > .@{prefix}-btn-ghost + .@{prefix}-btn-ghost {
+    margin-left: -1px;
+  }
+}
+
+// Vertical button groups
+// ----------------------
+
+.@{prefix}-btn-group-vertical {
+  > .@{prefix}-btn {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+
+    &:not(:last-child) {
+      .border-bottom-radius(0);
+    }
+
+    &:not(:first-child) {
+      .border-top-radius(0);
+    }
+  }
+
+  // collapse border
+
+  > .@{prefix}-btn-ghost + .@{prefix}-btn-ghost {
+    margin-top: -1px;
+  }
+}
+
+// Justified button groups
+// ----------------------
+
+.@{prefix}-btn-group-justified {
+  display: flex;
+
+  &.@{prefix}-btn-group-vertical {
+    flex-direction: column;
+  }
+
+  > .@{prefix}-btn {
+    flex: 1 1 1%;
+    .ellipsis-basic();
+  }
+}
