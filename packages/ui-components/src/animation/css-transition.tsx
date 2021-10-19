@@ -215,6 +215,8 @@ export const CssTransition: React.FC<CssTransitionProps> = (props) => {
   )
 }
 
+CssTransition.displayName = 'CssTransition'
+
 CssTransition.propTypes = {
   ...animationPropTypes,
   animation: PropTypes.bool,

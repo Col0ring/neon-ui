@@ -8,14 +8,21 @@ import { getPosition } from './utils'
 import { RectProps } from './type'
 
 export interface RippleProps {
-  onMouseDown?: (position: any, event: React.MouseEvent) => void
+  onMouseDown?: (position: RectProps, event: React.MouseEvent) => void
+  disabled?: boolean
 }
 
 export const Ripple: NeonForwardRefExoticComponent<'span', RippleProps> =
   React.forwardRef((props, nodeRef) => {
-    const { as: Component = 'span', className, onMouseDown, ...rest } = props
+    const {
+      as: Component = 'span',
+      disabled,
+      className,
+      onMouseDown,
+      ...rest
+    } = props
     const { merge, addPrefix, withClassPrefix } = useClassNames('ripple')
-    const rippleClassName = merge(className, addPrefix('pond'))
+    const classes = merge(className, addPrefix('pond'))
     const ref = useRef<HTMLElement>(null)
     const [rippling, setRippling] = useState(false)
     const [rect, setRect] = useState<RectProps>({
@@ -31,7 +38,7 @@ export const Ripple: NeonForwardRefExoticComponent<'span', RippleProps> =
 
     const handleMouseDown = useCallback(
       (event: React.MouseEvent) => {
-        if (!ref.current) {
+        if (!ref.current || disabled) {
           return
         }
         const currentRect = getPosition(ref.current, event)
@@ -39,7 +46,7 @@ export const Ripple: NeonForwardRefExoticComponent<'span', RippleProps> =
         setRect(currentRect)
         onMouseDown?.(currentRect, event)
       },
-      [onMouseDown]
+      [onMouseDown, disabled]
     )
 
     useEffect(() => {
@@ -55,11 +62,7 @@ export const Ripple: NeonForwardRefExoticComponent<'span', RippleProps> =
     }, [handleMouseDown])
 
     return (
-      <Component
-        className={rippleClassName}
-        ref={mergeRef(ref, nodeRef)}
-        {...rest}
-      >
+      <Component className={classes} ref={mergeRef(ref, nodeRef)} {...rest}>
         <CssTransition
           in={rippling}
           enteringClassName={addPrefix('rippling')}

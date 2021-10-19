@@ -1,13 +1,14 @@
 import React, { useCallback, useMemo, forwardRef } from 'react'
 import PropTypes from 'prop-types'
-import { GetRequiredProps } from '@neon-ui/misc/type-utils'
 import { NeonForwardRefExoticComponent } from '@neon-ui/misc/element-type'
 import { isTrivialHref } from './utils'
 
 export interface SafeAnchorProps {
+  /** Link specified url */
   href?: string
+
+  /** A link can show it is currently unable to be interacted with */
   disabled?: boolean
-  onClick?: (e: React.MouseEvent) => void
 }
 
 export const SafeAnchor: NeonForwardRefExoticComponent<'a', SafeAnchorProps> =
@@ -20,23 +21,22 @@ export const SafeAnchor: NeonForwardRefExoticComponent<'a', SafeAnchorProps> =
       children,
       ...restProps
     } = props
-    const handleClick: GetRequiredProps<SafeAnchorProps, 'onClick'> =
-      useCallback(
-        (event) => {
-          // safe click
-          if (disabled || isTrivialHref(href)) {
-            event.preventDefault()
-          }
+    const handleClick: NonNullable<typeof onClick> = useCallback(
+      (event) => {
+        // safe click
+        if (disabled || isTrivialHref(href)) {
+          event.preventDefault()
+        }
 
-          if (disabled) {
-            event.stopPropagation()
-            return
-          }
+        if (disabled) {
+          event.stopPropagation()
+          return
+        }
 
-          onClick?.(event)
-        },
-        [disabled, href, onClick]
-      )
+        onClick?.(event)
+      },
+      [disabled, href, onClick]
+    )
 
     const attrs = useMemo(() => {
       // There are default role and href attributes on the node to ensure Focus management and keyboard interactions.
