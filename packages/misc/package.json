@@ -10,6 +10,12 @@
     "name": "Col0ring",
     "email": "1561999073@qq.com"
   },
+  "exports": {
+    "./dom": {
+      "import": "./es/dom.js",
+      "require": "./lib/dom.js"
+    }
+  },
   "homepage": "https://github.com/col0ring/neon-ui#readme",
   "license": "MIT",
   "repository": {
@@ -23,7 +29,13 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf {./dom.js,./dom.d.ts,./type-utils.js,./type-utils.d.ts}",
-    "build": "yarn clean && tsc -p tsconfig.lib.json"
+    "build:pkg": "ts-node ./scripts/build-pkg.ts",
+    "clean:pkg": "ts-node ./scripts/clean-pkg.ts",
+    "clean": "rimraf {es,lib} && yarn clean:pkg",
+    "build": "yarn clean && tsc -p tsconfig.lib.json && tsc -p tsconfig.es.json && yarn build:pkg"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "fs-extra": "^10.0.0"
   }
 }

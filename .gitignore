@@ -12,8 +12,10 @@ dist
 docs-dist
 es
 lib
-packages/misc/*.js
-packages/misc/*.d.ts
+packages/misc/*/
+!packages/misc/src/
+!packages/misc/__tests__/
+!packages/misc/scripts/
 
 
 # misc
