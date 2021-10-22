@@ -32,9 +32,10 @@
     "build": "yarn run clean && tsc -p tsconfig.lib.json && tsc -p tsconfig.es.json && gulp build"
   },
   "dependencies": {
-    "@neon-ui/misc": "^1.0.1",
     "@neon-ui/hooks": "^1.0.1",
+    "@neon-ui/misc": "^1.0.1",
     "classnames": "^2.3.1",
+    "date-fns": "^2.25.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

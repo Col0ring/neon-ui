@@ -1,18 +1,7 @@
 import { useMemo } from 'react'
 import classnames, { Argument } from 'classnames'
-
-function addPrefix(pre: string, className: string | string[]): string {
-  if (!pre || !className) {
-    return ''
-  }
-
-  if (Array.isArray(className)) {
-    return classnames(
-      className.filter((name) => !!name).map((name) => `${pre}-${name}`)
-    )
-  }
-  return `${pre}-${className}`
-}
+import addPrefix from './addPrefix'
+import useClassNamePrefix from './useClassNamePrefix'
 
 export interface useClassNamesReturn {
   /**
@@ -34,8 +23,6 @@ export interface useClassNamesReturn {
   addRootPrefix: (...classes: Argument[]) => string
 }
 
-const classPrefix = 'neon'
-
 /**
  * Add a prefix to all classNames.
  *
@@ -44,6 +31,7 @@ const classPrefix = 'neon'
  *
  */
 export function useClassNames(prefix: string): useClassNamesReturn {
+  const [classPrefix] = useClassNamePrefix()
   return useMemo(() => {
     const componentName = addPrefix(classPrefix, prefix)
 
@@ -91,7 +79,7 @@ export function useClassNames(prefix: string): useClassNamesReturn {
         return mergedClassNames.filter(Boolean).join(' ')
       },
     }
-  }, [prefix])
+  }, [prefix, classPrefix])
 }
 
 export default useClassNames

@@ -9,6 +9,14 @@ export type DomElement = HTMLElement | Element | Window | Document | Node
 export type DomParam<T extends DomElement = DomElement> = React.RefObject<T> | T
 export type Percentage = `${string}%`
 
+// tool
+
+export type UnionToIntersection<U> = (
+  U extends U ? (arg: U) => any : never
+) extends (arg: infer T) => any
+  ? T
+  : never
+
 export type Simplify<T> = {
   [P in keyof T]: T[P]
 }

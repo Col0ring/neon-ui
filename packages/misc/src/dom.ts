@@ -56,6 +56,7 @@ function on(
 
 export { on }
 
+// ref
 export function isRefObject<T>(ref: React.Ref<T>): ref is React.RefObject<T> {
   return !!(ref && typeof ref !== 'function')
 }
@@ -98,6 +99,7 @@ export function getDomElement<T extends DomElement>(
   return ref
 }
 
+// dom rect/offset
 export function getRect<T extends Element>(element: T) {
   return element.getBoundingClientRect()
 }
@@ -142,4 +144,42 @@ export function getParentNode(
   }
 
   return null
+}
+
+// className
+export function hasClass(target: Element, className: string): boolean {
+  if (target.classList) {
+    return !!className && target.classList.contains(className)
+  }
+  return ` ${target.className} `.indexOf(` ${className} `) !== -1
+}
+export function addClass(target: Element, className: string): Element {
+  if (className) {
+    if (target.classList) {
+      target.classList.add(className)
+    } else if (!hasClass(target, className)) {
+      target.className = `${target.className} ${className}`
+    }
+  }
+  return target
+}
+export function removeClass(target: Element, className: string): Element {
+  if (className) {
+    if (target.classList) {
+      target.classList.remove(className)
+    } else {
+      target.className = target.className
+        .replace(new RegExp(`(^|\\s)${className}(?:\\s|$)`, 'g'), '$1')
+        .replace(/\s+/g, ' ') // multiple spaces to one
+        .replace(/^\s*|\s*$/g, '') // trim the ends
+    }
+  }
+  return target
+}
+
+export function toggleClass(target: Element, className: string): Element {
+  if (hasClass(target, className)) {
+    return removeClass(target, className)
+  }
+  return addClass(target, className)
 }

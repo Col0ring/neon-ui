@@ -10,5 +10,5 @@ function useFirstMountState() {
 
   return isFirst.current
 }
-
+export { useFirstMountState }
 export default useFirstMountState

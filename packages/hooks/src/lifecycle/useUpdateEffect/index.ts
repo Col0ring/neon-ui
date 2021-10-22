@@ -12,4 +12,5 @@ const useUpdateEffect: typeof useEffect = (effect, deps) => {
   }, deps)
 }
 
+export { useUpdateEffect }
 export default useUpdateEffect

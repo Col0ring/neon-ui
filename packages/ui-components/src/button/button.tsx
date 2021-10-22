@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { NeonForwardRefExoticComponent } from '@neon-ui/misc/element-type'
+import { isOneOf } from '@neon-ui/misc/utils'
 import SafeAnchor from '../safe-anchor'
 import Ripple from '../ripple'
 import useClassNames from '../utils/useClassNames'
-import isOneOf from '../utils/isOneOf'
 import { ButtonProps } from './type'
 import { useButtonContext } from './provider'
 

@@ -6,7 +6,7 @@ docs-dist
 .umi
 .umi-production
 .umi-test
-packages/misc/*/
-!packages/misc/src/
-!packages/misc/__tests__/
-!packages/misc/scripts/
+packages/misc/*/*
+!packages/misc/src/*
+!packages/misc/__tests__/*
+!packages/misc/scripts/*
