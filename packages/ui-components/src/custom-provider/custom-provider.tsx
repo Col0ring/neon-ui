@@ -1,6 +1,7 @@
 import React, { useMemo, useEffect, createContext } from 'react'
 import { isBrowser } from '@neon-ui/misc/env'
 import { addClass, removeClass } from '@neon-ui/misc/dom'
+import { ThemeType } from '@neon-ui/misc/element-type'
 import { Locale } from '../locales'
 import addPrefix from '../utils/addPrefix'
 import useClassNamePrefix from '../utils/useClassNamePrefix'
@@ -45,7 +46,7 @@ export interface CustomContextValue<T = Locale> {
 
 export interface CustomProviderProps<T = Locale> extends CustomContextValue<T> {
   /** Supported themes */
-  theme?: 'light' | 'dark' | 'high-contrast'
+  theme?: ThemeType
 
   /** The prefix of the component CSS class */
   classPrefix?: string

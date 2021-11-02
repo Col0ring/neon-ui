@@ -1,5 +1,7 @@
 import React from 'react'
 import { Simplify } from './type-utils'
+
+export type ThemeType = 'light' | 'dark' | 'high-contrast'
 export interface StandardProps {
   /** Additional classes */
   className?: string
