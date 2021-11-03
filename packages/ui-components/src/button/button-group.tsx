@@ -40,12 +40,13 @@ export const ButtonGroup: NeonForwardRefExoticComponent<
     children,
     block,
     vertical,
+    classPrefix = 'btn-group',
     justified,
     buttonProps,
     ...rest
   } = props
 
-  const { withClassPrefix, merge } = useClassNames('btn-group')
+  const { withClassPrefix, merge } = useClassNames(classPrefix)
   const classes = merge(
     className,
     withClassPrefix({ block, vertical, justified })

@@ -21,11 +21,12 @@ const CloseButton: NeonForwardRefExoticComponent<'button', CloseButtonProps> =
     const {
       as: Component = 'span',
       className,
+      classPrefix = 'btn-close',
       locale: overrideLocale,
       ...rest
     } = props
 
-    const { withClassPrefix, merge } = useClassNames('btn-close')
+    const { withClassPrefix, merge } = useClassNames(classPrefix)
     const { locale } = useCustom('CloseButton', overrideLocale)
     const classes = merge(className, withClassPrefix())
 

@@ -26,13 +26,14 @@ export const ButtonToolbar: NeonForwardRefExoticComponent<
     className,
     as: Component = 'div',
     role = 'toolbar',
+    classPrefix = 'btn-toolbar',
     block,
     children,
     buttonProps,
     ...rest
   } = props
 
-  const { withClassPrefix, merge } = useClassNames('btn-toolbar')
+  const { withClassPrefix, merge } = useClassNames(classPrefix)
   const classes = merge(
     className,
     withClassPrefix({

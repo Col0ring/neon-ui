@@ -3,6 +3,7 @@ import { Simplify } from './type-utils'
 
 export type ThemeType = 'light' | 'dark' | 'high-contrast'
 export interface StandardProps {
+  classPrefix?: string
   /** Additional classes */
   className?: string
 

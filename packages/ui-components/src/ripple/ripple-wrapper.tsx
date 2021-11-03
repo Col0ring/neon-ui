@@ -9,11 +9,12 @@ export const RippleWrapper: NeonForwardRefExoticComponent<'div', RippleProps> =
     const {
       as: Component = 'div',
       onMouseDown,
+      classPrefix = 'ripple',
       className,
       children,
       ...rest
     } = props
-    const { merge, addPrefix } = useClassNames('ripple')
+    const { merge, addPrefix } = useClassNames(classPrefix)
     const rippleClassName = merge(className, addPrefix('wrapper'))
 
     return (

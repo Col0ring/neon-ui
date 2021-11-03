@@ -20,6 +20,7 @@ export const Button: NeonForwardRefExoticComponent<'button', ButtonProps> =
       color,
       disabled,
       loading,
+      classPrefix = 'btn',
       ripple = true,
       size,
       // html type
@@ -27,7 +28,7 @@ export const Button: NeonForwardRefExoticComponent<'button', ButtonProps> =
       ...rest
     } = { ...useButtonContext(), ...props }
 
-    const { withClassPrefix, addPrefix, merge } = useClassNames('btn')
+    const { withClassPrefix, addPrefix, merge } = useClassNames(classPrefix)
     const classes = merge(
       className,
       withClassPrefix(appearance, color, size, {

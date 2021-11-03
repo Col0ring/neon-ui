@@ -24,11 +24,12 @@ export const IconButton: NeonForwardRefExoticComponent<
     placement = 'left',
     children,
     circle,
+    classPrefix = 'btn-icon',
     className,
     ...rest
   } = props
 
-  const { merge, addRootPrefix, withClassPrefix } = useClassNames('btn-icon')
+  const { merge, addRootPrefix, withClassPrefix } = useClassNames(classPrefix)
   const classes = merge(
     className,
     withClassPrefix({

@@ -19,9 +19,11 @@ export const Ripple: NeonForwardRefExoticComponent<'span', RippleProps> =
       disabled,
       className,
       onMouseDown,
+      classPrefix = 'ripple',
+
       ...rest
     } = props
-    const { merge, addPrefix, withClassPrefix } = useClassNames('ripple')
+    const { merge, addPrefix, withClassPrefix } = useClassNames(classPrefix)
     const classes = merge(className, addPrefix('pond'))
     const ref = useRef<HTMLElement>(null)
     const [rippling, setRippling] = useState(false)
